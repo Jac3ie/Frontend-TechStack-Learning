@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- for the table tag we have border attribute to define border thickness -->
+    <!-- Also width attribute for enlarge the table a bit -->
+    <!-- We also have cellspacing to make margin bettwen cells -->
+    <table border="1" width="300" cellspacing="5">
+        <!-- A table tag is consist of three parts: thead; tbody; tfoot -->
+        <thead>
+            <!-- In the <thead> part we need one row two col, row is <tr> and col is <td> -->
+            <!-- But for the heading/ first row of table we use <th> for bold fonts -->
+            <tr>
+                <th>Country</th>
+                <th>Literacy Rate</th>
+            </tr>
+        </thead>
+        <!-- We can make whole tbody align together by specifying center attri -->
+        <tbody align="center">
+            <tr>
+                <td>China</td>
+                <td>85%</td>
+            </tr>
+
+            <tr>
+                <td>India</td>
+                <td>75%</td>
+            </tr>
+
+            <tr>
+                <td>Thailand</td>
+                <td>70%</td>
+            </tr>
+        </tbody>
+        <tfoot align="center">
+            <tr>
+                <td>World</td>
+                <td>76%</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
