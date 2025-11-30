@@ -7,10 +7,6 @@
     <title>My first document</title>
 
     <style>
-        .redBackground {
-            background-color: red;
-        }
-
         /*Since we have two div so we use class to differentiate them, then pattern changed
             from div h2 => class h2*/
         .desc h2 {
@@ -23,15 +19,19 @@
             color: white;
         }
 
+        h1 + h2 {
+            background-color: brown;
+            color: bisque;
+        }
+
+        h3 ~ h4 {
+            background-color: chocolate;
+            color: aqua;
+        }
+
     </style>
 </head>
 <body>
-    <h1>This is first H1 tag</h1>
-    <h2 class="redBackground">This is first H2 tag</h2>
-
-    <h1>This is second H1 tag</h1>
-    <h2 class="redBackground">This is second H2 tag</h2>
-
     <!-- Use descendent combinator to change color -->
     <div class="desc">
         <h2>descendent combinator usage</h2>
@@ -41,6 +41,7 @@
             <h2>descendent combinator usage even inside of other tag</h2>
         </section>
     </div>
+    <br>
 
     <!-- Use child combinator to change color of direct childs -->
     <div class="child">
@@ -51,5 +52,27 @@
             <h2>not direct child so dont change</h2>
         </section>
     </div>
+    <br>
+
+    <!-- Use adjcent selector to change color of certain pattern of adjcent tags -->
+    <h1>H1 will not change color</h1>
+    <h2>Adjcent H2 will change color</h2>
+    <h2>not change color since not directly adjcent to H1</h2>
+    <h2>not change color since not directly adjcent to H1</h2>
+
+    <h1>H1 will not change color</h1>
+    <h2>Adjcent H2 will change color</h2>
+    <h2>not change color since not directly adjcent to H1</h2>
+    <h2>not change color since not directly adjcent to H1</h2>
+    <br>
+
+    <!-- Use general sibling selector to change color of all siblings -->
+    <h3>This match h3 but not siblings</h3>
+    <h4>This matched h3 ~ h4 and is sibling</h4>
+    <h4>This matched h3 ~ h4 and is sibling</h4>
+    <h3>This match h3 but not siblings</h3>
+    <h4>This matched h3 ~ h4 and is sibling</h4>
+    <h4>This matched h3 ~ h4 and is sibling</h4>
+    <br>
 </body>
 </html>
