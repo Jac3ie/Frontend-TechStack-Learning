@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first document</title>
+
+    <style>
+        .redBackground {
+            background-color: red;
+        }
+
+        /*Since we have two div so we use class to differentiate them, then pattern changed
+            from div h2 => class h2*/
+        .desc h2 {
+            background-color: aquamarine;
+            color: darkgreen;
+        }
+
+        .child > h2 {
+            background-color: tomato;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>This is first H1 tag</h1>
+    <h2 class="redBackground">This is first H2 tag</h2>
+
+    <h1>This is second H1 tag</h1>
+    <h2 class="redBackground">This is second H2 tag</h2>
+
+    <!-- Use descendent combinator to change color -->
+    <div class="desc">
+        <h2>descendent combinator usage</h2>
+        <h2>descendent combinator usage</h2>
+        <section>
+            <h3>This will not be changed since tag not match</h3>
+            <h2>descendent combinator usage even inside of other tag</h2>
+        </section>
+    </div>
+
+    <!-- Use child combinator to change color of direct childs -->
+    <div class="child">
+        <h2>child combinator usage</h2>
+        <h2>child combinator usage</h2>
+        <section>
+            <h3>This will not be changed since tag not match</h3>
+            <h2>not direct child so dont change</h2>
+        </section>
+    </div>
+</body>
+</html>
