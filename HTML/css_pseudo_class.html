@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Make use of Tag Class to specify the class & Pseudo Class specify the action when user interact with it */
+        button:hover {
+            background-color: red;
+            color: white;
+        }
+
+        button:active {
+            background-color: blueviolet;
+            color: azure;
+        }
+
+        a:visited {
+            color: green;
+        }
+
+        input:focus {
+            background-color: aqua;
+            color: blueviolet;
+        }
+
+        /* This mean parent of a, and count 3rd to it and also need to be a type! */
+        a:nth-child(3) {
+            background-color: bisque;
+        }
+
+        /* nth-of-type is really <Selector>:<Pseudo> Selector type and count 3rd of it to apply */
+        /* also can put multiple n means 2n for even, 2n+1 for odd */
+        p:nth-of-type(2n+1) {
+            background-color: darkcyan;
+            color: rgb(29, 68, 101);
+        }
+
+        /* same thing here, first-child is for the parent of the selector, and the first child & need to be p */
+         /* In our case does not have one, so no effect */
+        p:first-child {
+            background-color: blue;
+        }
+
+        p:last-child {
+            background-color: blue;
+        }
+
+        p:first-of-type {
+            background-color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <button>
+        Click Me
+    </button>
+    <br>
+
+    <a href="####">
+        Click here to see visited effect
+    </a>
+    <br>
+
+    <input type="text">
+    <br>
+
+    <p class="paragraph">This is 1st para</p>
+    <p class="paragraph">This is 2nd para</p>
+    <p class="paragraph">This is 3rd para</p>
+    <p class="paragraph">This is 4th para</p>
+</body>
+</html>
