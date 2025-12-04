@@ -48,7 +48,25 @@
         }
 
         p:first-of-type {
-            background-color: blue;
+            background-color: rgb(122, 122, 164);
+        }
+
+        p#hidden {
+            display: none;
+            background-color: yellow;
+            padding: 20px;
+        }
+
+        div:hover p#hidden {
+            display: block;
+        }
+
+        p em:first-child {
+            background-color: pink;
+        }
+
+        q:lang(yes) {
+            quotes: "!" "@";
         }
 
     </style>
@@ -71,5 +89,20 @@
     <p class="paragraph">This is 2nd para</p>
     <p class="paragraph">This is 3rd para</p>
     <p class="paragraph">This is 4th para</p>
+
+    <h2>Use :hover to Show Tooltip</h2>
+
+    <div>Hover over this div element to show the p element
+        <p id="hidden">Tada! Here I am!</p>
+    </div>
+
+    <h2>Use p em:first-child</h2>
+    <p>Style the first em element in all p elements:</p>
+    <p>I am a <em>strong</em> person. I am a <em>strong</em> person.</p>
+    <p>I am a <em>strong</em> person. I am a <em>strong</em> person.</p>
+
+    <h2>Using :lang</h2>
+    <p>In this example, :lang defines the quotation marks for q elements with lang="yes":</p>
+    <p>Some text <q lang="yes">A quote in a paragraph</q> Some text.</p>
 </body>
 </html>
