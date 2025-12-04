@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a[href^="https"] {
+            background-color: aqua;
+            color: violet;
+        }
+
+        input[type="email"] {
+            background-color: brown;
+            color: whitesmoke;
+        }
+
+        [title~="flower"] {
+            background-color: antiquewhite;
+        }
+
+        input[type="text"] {
+            width: 150px;
+            padding: 6px;
+            margin-bottom: 10px;
+            background-color: pink;
+        }
+
+        input[type="button"] {
+            width: 100px;
+            padding: 6px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <a href="#">Internal 1</a>
+    <a href="https://www.youtube.com">Youtube</a>
+    <a href="#">Internal 2</a>
+    <a href="https://www.google.com/?client=safari">Google</a>
+    <a href="#">Internal 3</a>
+    <br>
+    <br>
+    <input type="text">
+    <input type="number">
+    <input type="email">
+    <input type="password">
+
+    <h2>CSS [attribute~="value"] Selector</h2>
+    <p>All images with the title attribute containing the word "flower" get a yellow border.</p>
+
+    <img src="klematis.jpg" title="klematis flower" width="150" height="113">
+    <img src="img_flwr.gif" title="flower" width="224" height="162">
+    <img src="img_tree.gif" title="tree" width="200" height="358">
+    <br>
+
+    <h2>Style Form Elements with Attribute Selectors</h2>
+
+    <form name="input" action="" method="get">
+        Firstname: <input type="text" name="Name" value="Peter" size="20"><br>
+        Lastname: <input type="text" name="Name" value="Griffin" size="20"><br><br>
+    <input type="button" value="Button">
+</form>
+</body>
+</html>
