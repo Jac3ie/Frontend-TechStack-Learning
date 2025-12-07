@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #one {
+            height: 50px;
+            background-color: aquamarine;
+            width: 100%; /* set to be 100% of width of its parent */
+            padding: 20px; /* width now = 500 * 100% + 20 left + 20 right = 240 exceed! */
+
+            box-sizing: border-box; /* fix this issue */
+            border: 5px solid rgb(237, 59, 59);
+        }
+
+        #two {
+            height: 50px;
+            background-color: rgb(175, 175, 232);
+        }
+
+        #main {
+            border: 10px solid rgb(82, 48, 48);
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="one">One</div>
+        <div id="two">Two</div>
+    </div>
+</body>
+</html>
