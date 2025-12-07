@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: yellowgreen;
+            color: brown;
+            height: 100px;
+            margin: 20px;
+            /* change the display from default block -> inline like a row */
+            /* display: inline; */
+            display: inline-block; /* use inline-block so we can use height property again, cuz inline does not support height */
+        }
+
+        span {
+            background-color: aqua;
+            color: brown;
+            width: 100px;
+            margin: 20px;
+            /* change the display from default inline -> block like a col */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- div goes vertically like a column -->
+    <div>First</div>
+    <div>Second</div>
+    <div>Third</div>
+
+    <!-- span tag goes horizontally like a row -->
+    <span>One</span>
+    <span>Two</span>
+    <span>Three</span>
+</body>
+</html>
