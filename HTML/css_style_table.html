@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 5px;
+        }
+
+        table, tr, th, td {
+            border: 3px solid orangered;
+            border-collapse: collapse; /* merge those seemingly separate borders */
+            text-align: left; /* centered those table elements */
+            padding: 5px;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+        }
+
+        tr:nth-child(2n + 1) {
+            background-color: bisque;
+        }
+
+        td:hover {
+            background-color: lightblue;
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+        </tr>
+
+        <tr>
+            <td>Peter</td>
+            <td>Lores</td>
+        </tr>
+
+        <tr>
+            <td>Haicheng</td>
+            <td>Wang</td>
+        </tr>
+
+        <tr>
+            <td>Peter</td>
+            <td>Lores</td>
+        </tr>
+
+        <tr>
+            <td>Haicheng</td>
+            <td>Wang</td>
+        </tr>
+        <tr>
+            <td>Peter</td>
+            <td>Lores</td>
+        </tr>
+
+        <tr>
+            <td>Haicheng</td>
+            <td>Wang</td>
+        </tr>
+        <tr>
+            <td>Peter</td>
+            <td>Lores</td>
+        </tr>
+
+        <tr>
+            <td>Haicheng</td>
+            <td>Wang</td>
+        </tr>
+
+    </table>
+</body>
+</html>
