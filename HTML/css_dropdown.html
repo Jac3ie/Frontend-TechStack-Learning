@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown_content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            left: 30px;
+            padding: 5px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+            width: 100px;
+        }
+
+        .dropdown:hover .dropdown_content {
+            display: block;
+        }
+
+        .dropdown_btn {
+            border: none;
+            padding: 20px;
+            font-weight: 100px;
+            font-weight: 1000;
+        }
+
+        .a {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <button class="dropdown_btn">Dropdown List</button>
+        <div class="dropdown_content">
+            <a href="#">Option 1</a>
+            <a href="#">Option 2</a>
+            <a href="#">Option 3</a>
+            <a href="#">Option 4</a>
+        </div>
+    </div>
+</body>
+</html>
