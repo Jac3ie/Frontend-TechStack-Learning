@@ -7,7 +7,7 @@
     <style>
         .dropdown {
             position: relative;
-            display: inline-block;
+            display: inline-block; /*make it into a row like, each col is an option*/
         }
 
         .dropdown_content {
@@ -20,8 +20,8 @@
             width: 100px;
         }
 
-        .dropdown:hover .dropdown_content {
-            display: block;
+        .dropdown:hover .dropdown_content { /* When the user hovers over an element with class dropdown find the dropdown_content inside it and show it. */
+            display: block; /*make it into a col like, each row is one option*/
         }
 
         .dropdown_btn {
@@ -29,10 +29,6 @@
             padding: 20px;
             font-weight: 100px;
             font-weight: 1000;
-        }
-
-        .a {
-            display: block;
         }
     </style>
 </head>
