@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AJAX Users Demo</title>
+</head>
+<body>
+  <h1>Users</h1>
+  <ul id="userList"></ul>
+
+  <script>
+    /*
+      High-level flow (AJAX with XMLHttpRequest):
+      1) Pick a place in the DOM to show results (#userList).
+      2) Create an XMLHttpRequest (XHR) object.
+      3) Register a callback (onreadystatechange) so we can react when the request state changes.
+      4) Open the request (method + URL).
+      5) Send the request.
+      6) When the response is done and successful (status 200), parse JSON and render <li> items.
+    */
+
+    const userList = document.querySelector('#userList');
+
+    // 1) Create the request object (this is the "AJAX request" container)
+    const xhr = new XMLHttpRequest();
+
+    /*
+      onreadystatechange:
+      - A property where you assign a function.
+      - That function is called MANY times as the request moves through states (0 → 4).
+      - We only do real work when readyState === DONE (4), meaning "response fully received".
+    */
+    xhr.onreadystatechange = function () {
+      // readyState values (quick reference):
+      // 0: UNSENT, 1: OPENED, 2: HEADERS_RECEIVED, 3: LOADING, 4: DONE
+
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        // status is the HTTP response code. 200 means "OK".
+        if (xhr.status === 200) {
+          // responseText is the response body as a string
+          const userData = JSON.parse(xhr.responseText); // parse JSON string into JS objects
+
+          // Render each user as an <li>
+          userData.forEach((user) => {
+            const li = document.createElement('li');
+            li.textContent = user.name;
+            userList.appendChild(li);
+          });
+        } else {
+          // Any non-200 response comes here (404, 500, etc.)
+          alert('There was a problem with the request');
+        }
+      }
+    };
+
+    // 4) Configure the request (does not send yet)
+    // xhr.open(method, url)
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/users');
+
+    // 5) Send the request (browser starts contacting the server)
+    xhr.send();
+  </script>
+</body>
+</html>
