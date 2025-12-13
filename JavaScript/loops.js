@@ -16,3 +16,22 @@ do {
     console.log(k);  // 1 → 10
     k++;
 } while (k <= 10);
+
+
+// for...in loop: iterates over KEYS / PROPERTY NAMES (usually for objects)
+/**
+ * 	•	Python: very similar to a dict
+	•	Java: kind of like a Map<String, Object>, but with special syntax and extra features
+ */
+let person = { // person is a plain JavaScript object.
+    name: 'Haicheng',
+    age: 21,
+    country: 'Thailand'
+};
+
+for (let key in person) {
+    console.log(`${key}: ${person[key]}`);
+    // name: Haicheng
+    // age: 21
+    // country: Thailand
+}
