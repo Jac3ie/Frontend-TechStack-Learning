@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Demo</title>
+</head>
+<body>
+    <h1>DOM Selector</h1>
+
+    <div id="greet">Hello World!</div>
+    <div>Hi There</div><br>
+
+    <p>Here is an unordered list:</p>
+    <ul>
+        <li class="green">Item 1</li>
+        <li>Item 2</li>
+        <li class="green">Item 3</li>
+        <li>Item 4</li>
+    </ul>
+
+    <script>
+        // Select by id – returns a single element (or null)
+        console.log(document.getElementById('greet'));
+
+        // Select by class – returns an HTMLCollection (live collection)
+        let items = document.getElementsByClassName('green');
+        console.log(items);
+
+        // Select by tag name – also returns an HTMLCollection
+        let tagItems = document.getElementsByTagName('li');
+        console.log(tagItems);
+
+        // querySelector – first element that matches a CSS selector
+        let firstGreen = document.querySelector('.green');
+        console.log(firstGreen);
+
+        // querySelectorAll – all elements that match a CSS selector (NodeList, not live)
+        let allGreen = document.querySelectorAll('.green');
+        console.log(allGreen);
+    </script>
+</body>
+</html>
