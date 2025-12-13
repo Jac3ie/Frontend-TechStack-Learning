@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Interactive UI</title>
+
+    <style>
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            cursor: pointer;              /* show it’s clickable */
+            margin: 4px 0;
+        }
+
+        /* Mark completed items with a strikethrough and lighter color */
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Todo List</h1>
+
+    <ul>
+        <li>Buy groceries</li>
+        <li>Do laundry</li>
+        <li>Clean house</li>
+    </ul>
+
+    <script>
+        // Select all <li> elements
+        const listItems = document.querySelectorAll('li');
+
+        // Add a click handler to each item
+        listItems.forEach((listItem) => {
+            listItem.addEventListener('click', () => {
+                // Toggle the CSS class: add if missing, remove if present
+                listItem.classList.toggle('completed');
+            });
+        });
+    </script>
+</body>
+</html>
