@@ -1,0 +1,14 @@
+In most frontend / Node.js projects you’ll see mainly:
+
+	1.	kebab-case (recommended for general JS files)
+	•	Example: app.js, user-service.js, form-handler.js
+	•	All lowercase, words separated by -
+	•	Very common in web projects and npm packages.
+
+	2.	camelCase (less common for files, common for variables/functions)
+	•	Example: userService.js, formHandler.js
+	•	Some teams use this, but kebab-case is more standard for file names.
+
+	3.	PascalCase (often for React / classes / components)
+	•	Example: UserCard.jsx, HomePage.js, LoginForm.js
+	•	Used when the file exports a component or class with the same name.
