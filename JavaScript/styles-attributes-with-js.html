@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM – Styles & Attributes</title>
+    <style>
+        span {
+            margin: 10px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Manipulations - styles & attributes</h1>
+    <div>
+        <span id="One" name="First">First Span</span>
+        <span id="Two" name="Second">Second Span</span>
+    </div>
+
+    <script>
+        const div = document.querySelector('div');
+        const spanOne = document.getElementById('One');
+        const spanTwo = document.getElementById('Two');
+
+        // ----- Attributes -----
+
+        // Get attribute value
+        console.log('spanOne name:', spanOne.getAttribute('name'));
+
+        // Set / change attribute value
+        spanOne.setAttribute('name', 'changed-attribute');
+
+        // Remove attribute
+        spanOne.removeAttribute('name');
+
+        // You can also change id directly via property
+        spanOne.id = 'changedIDOne';   // (avoid spaces in id)
+
+
+        // ----- classList (classes) -----
+
+        // Add a CSS class
+        spanTwo.classList.add('highlight');
+
+        // Check if a class exists
+        console.log('Has highlight?', spanTwo.classList.contains('highlight'));
+
+        // Remove a class
+        spanTwo.classList.remove('highlight');
+
+        // Toggle a class (add if missing, remove if present)
+        spanTwo.classList.toggle('highlight');
+
+
+        // ----- Inline styles -----
+
+        // Style properties use camelCase (background-color → backgroundColor)
+        spanOne.style.color = 'red';
+        spanTwo.style.backgroundColor = 'lightgreen';
+
+        // Example: center-align text of the whole div
+        div.style.textAlign = 'center';
+    </script>
+</body>
+</html>
