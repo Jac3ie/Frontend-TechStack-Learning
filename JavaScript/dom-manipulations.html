@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h1>DOM Manipulations</h1>
+
+    <script>
+        // When the browser reaches this <script>, it pauses HTML parsing
+        // and runs the JavaScript.
+
+        // Shows the document object as an expandable tree in DevTools
+        console.dir(document);
+
+        console.log(document.domain);  // e.g. "127.0.0.1"
+        console.log(document.URL);     // full page URL
+
+        // Change the tab title via DOM
+        document.title = 'dom manipulations';
+
+        // Get a reference to <body>
+        const body = document.body;
+
+        // Append plain text directly to the body
+        body.append('Hello from JS appending');
+
+        // Create and append a <div> element
+        const div = document.createElement('div');
+        div.innerText = 'JavaScript Div Append';
+        body.append(div);
+
+        // Create and append a <p> element
+        const paragraph = document.createElement('p');
+        paragraph.innerText = 'This is a paragraph';
+        body.append(paragraph);
+
+        // Remove the elements AFTER 2 seconds so we can see them first
+        // arrow function for short cut of create & run a function
+        setTimeout(() => {
+            body.removeChild(div);  // old-school way
+            paragraph.remove();     // modern, remove itself
+        }, 2000);
+    </script>
+</body>
+</html>
