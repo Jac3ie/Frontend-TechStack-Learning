@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AJAX Users Demo (Button Controlled)</title>
+  <style>
+    button { padding: 10px 14px; cursor: pointer; }
+    #status { margin-top: 10px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>Users</h1>
+
+  <!-- Control area (better UX) -->
+  <button id="loadBtn">Load Users</button>
+  <button id="clearBtn">Clear</button>
+  <div id="status"></div>
+
+  <ul id="userList"></ul>
+
+  <script>
+    const userList = document.querySelector('#userList');
+    const loadBtn = document.querySelector('#loadBtn');
+    const clearBtn = document.querySelector('#clearBtn');
+    const statusEl = document.querySelector('#status');
+
+    function setStatus(msg) {
+      statusEl.textContent = msg;
+    }
+
+    function renderUsers(users) {
+      userList.innerHTML = ''; // clear old result first
+      users.forEach((user) => {
+        const li = document.createElement('li');
+        li.textContent = user.name;
+        userList.appendChild(li);
+      });
+    }
+
+    // Button-controlled loading
+    loadBtn.addEventListener('click', () => {
+      // UX: prevent spamming clicks while loading
+      loadBtn.disabled = true;
+      setStatus('Loading users...');
+
+      const xhr = new XMLHttpRequest();
+
+      xhr.onreadystatechange = function () {
+        // Only do work when request is fully done
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          loadBtn.disabled = false;
+
+          if (xhr.status === 200) {
+            const users = JSON.parse(xhr.responseText);
+            renderUsers(users);
+            setStatus(`Loaded ${users.length} users.`);
+          } else {
+            setStatus(`Request failed (status ${xhr.status}).`);
+            alert('There was a problem with the request');
+          }
+        }
+      };
+
+      xhr.open('GET', 'https://jsonplaceholder.typicode.com/users');
+      xhr.send();
+    });
+
+    // Optional: clear results
+    clearBtn.addEventListener('click', () => {
+      userList.innerHTML = '';
+      setStatus('');
+    });
+  </script>
+</body>
+</html>
