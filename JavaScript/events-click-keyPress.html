@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Event</title>
+</head>
+<body>
+    <button id="btn">Click Me</button>
+
+    <div>
+        <label for="searchBox">Text Input Box:</label>
+        <input id="searchBox" type="text">
+    </div>
+
+    <script>
+        // Select the button
+        const btn = document.querySelector('#btn');
+        
+        // Handle button click
+        btn.addEventListener('click', () => {
+            alert('Hello World!');
+        });
+
+        // Select the input box
+        const searchBox = document.querySelector('#searchBox');
+        
+        // Handle typing in the input (fires on every key release)
+        searchBox.addEventListener('keyup', (event) => {
+            console.log('Current value:', event.target.value);
+        });
+    </script>
+</body>
+</html>
