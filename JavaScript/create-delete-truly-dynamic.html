@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOM Element Creation & Deletion</title>
+  <style>
+    li { margin: 6px 0; }
+    .removeBtn { margin-left: 10px; }
+  </style>
+</head>
+<body>
+  <h1>My favorite food</h1>
+
+  <ul id="foodList">
+    <li>Pizza <button class="removeBtn">Remove</button></li>
+    <li>Sushi <button class="removeBtn">Remove</button></li>
+  </ul>
+
+  <!-- Dynamic input + add button -->
+  <input id="foodInput" type="text" placeholder="Type a food..." />
+  <button id="addBtn">Add</button>
+
+  <script>
+    const foodList = document.querySelector('#foodList');
+    const foodInput = document.querySelector('#foodInput');
+    const addBtn = document.querySelector('#addBtn');
+
+    // Helper: create one <li> with text + a remove button
+    function createFoodItem(text) {
+      const li = document.createElement('li');
+      li.textContent = text;
+
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'Remove';
+      removeBtn.classList.add('removeBtn');
+
+      // Remove THIS specific list item
+      removeBtn.addEventListener('click', () => removeBtn.closest('li').remove());
+
+      li.append(' ');
+      li.appendChild(removeBtn);
+      return li;
+    }
+
+    // Add new item dynamically
+    addBtn.addEventListener('click', () => {
+      const value = foodInput.value.trim();
+      if (!value) return;
+
+      foodList.appendChild(createFoodItem(value));
+      foodInput.value = '';   // Clear the input box after adding the item
+      foodInput.focus();      // Put the cursor back into the input so the user can type the next item immediately
+    });
+
+    // Optional UX: press Enter to add
+    foodInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') addBtn.click();
+    });
+
+    // Make existing "Remove" buttons work too (for initial items)
+    document.querySelectorAll('.removeBtn').forEach((btn) => {
+      // When this Remove button is clicked:
+      // 1) find the nearest parent <li> that contains this button
+      // 2) remove that <li> from the page (so this specific item disappears)
+      btn.addEventListener('click', () => btn.closest('li').remove());
+    });
+  </script>
+</body>
+</html>
