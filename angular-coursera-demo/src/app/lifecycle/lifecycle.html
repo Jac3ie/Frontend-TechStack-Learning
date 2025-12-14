@@ -1,0 +1,15 @@
+<!-- lifecycle.html -->
+
+<h2>Lifecycle Example</h2>
+
+<!--
+  3) TEMPLATE RENDER STAGE
+  - Angular evaluates `initialized` whenever change detection runs.
+  - Initially: false (before ngOnInit sets it)
+  - After ngOnInit: true -> this block appears
+-->
+@if (initialized) {
+  <p>Component initialized from template HTML</p>
+} @else {
+  <p>Initializing...</p>
+}
