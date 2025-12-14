@@ -1,0 +1,58 @@
+<!--
+  This template is ONLY shown when you navigate to /decorator (routing isolation).
+  app.html is shared across all routes, so we do NOT put parent-child demos in app.html.
+-->
+
+<h2>{{ title }}</h2>
+
+<p class="hint">
+  This page demonstrates common Angular decorators:
+  <b>@Component</b>, <b>@Input</b>, <b>@Output</b>.
+</p>
+
+<hr />
+
+<!--
+  "Parent area" (simulated):
+  Normally, parent->child means:
+    Parent template: <app-child [data]="x" (event)="handler($event)"></app-child>
+
+  But for your learning project, keep app.html clean.
+  So we demonstrate the idea inside this routed page:
+-->
+
+<section class="box">
+  <h3>Simulated Parent Area</h3>
+  <p>
+    In real projects, the parent component provides data and listens to events.
+    Here, we show the concepts without touching <code>app.html</code>.
+  </p>
+
+  <!--
+    Output demo:
+    In a true parent, you'd bind: (liked)="onLiked($event)"
+    Because we are inside one component file right now, we will just show the
+    "child action" and display the result locally.
+  -->
+  <button (click)="onLikeClick()">Click (Child action)</button>
+
+  <p class="result">
+    Likes: {{ likesCount }}
+  </p>
+
+  <p class="note">
+    When you click, the component method runs, updates state, and Angular updates the DOM.
+    (If a parent were listening, it would also receive an @Output event.)
+  </p>
+</section>
+
+<hr />
+
+<section class="box">
+  <h3>Quick Summary</h3>
+  <ul>
+    <li><b>@Component</b>: tells Angular this class controls a piece of UI.</li>
+    <li><b>@Input()</b>: parent passes data into the child (like function parameters).</li>
+    <li><b>@Output()</b>: child sends an event back to parent (like callbacks).</li>
+  </ul>
+</section>
