@@ -1,0 +1,26 @@
+Angular naming convention checklist (copy/paste)
+
+Project (workspace/app) name
+	•	kebab-case
+	•	Example (2 words): movie-app, study-tracker, chat-client
+
+Component folder + files
+	•	kebab-case
+	•	Example folder (2 words): user-card/
+	•	Example files (2 words):
+	•	user-card.component.ts
+	•	user-card.component.html
+	•	user-card.component.css
+	•	user-card.component.spec.ts
+
+Component class name (TypeScript)
+	•	PascalCase + usually ends with Component
+	•	Example (2 words): UserCardComponent, OrderListComponent, LoginFormComponent
+
+Selector (used in templates)
+	•	kebab-case, commonly prefixed with app-
+	•	Example (2 words): app-user-card, app-order-list, app-login-form
+
+Route path (URL)
+	•	kebab-case
+	•	Example (2 words): /user-card, /order-list, /login-form

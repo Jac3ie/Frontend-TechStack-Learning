@@ -1,0 +1,29 @@
+<div>
+  <h2>Data Binding Example</h2>
+
+  <!-- ONE-WAY (Component ➜ View)
+       status is a TypeScript variable.
+       {{ status }} only DISPLAYs the value in the UI.
+       If status changes in TS, the UI updates.
+       But editing the UI will NOT change status (because it's just text). -->
+  <p>This is a demo about One-Way Data Binding</p>
+  <p>Project status is: {{ status }}</p>
+
+  <label for="input">Type a country</label>
+
+  <!-- TWO-WAY (Component ⇄ View) using [(ngModel)]
+       - When user types: input value ➜ updates country in TS
+       - When TS updates country: country ➜ updates input value
+       So the UI and the variable stay in sync. -->
+  <input
+    type="text"
+    id="input"
+    [(ngModel)]="country"
+    (ngModelChange)="displayCountry()"
+    placeholder="US"
+  />
+
+  <!-- ONE-WAY (Component ➜ View) again:
+       showing the current TS value of country -->
+  <p>Current country in TS: {{ country }}</p>
+</div>
