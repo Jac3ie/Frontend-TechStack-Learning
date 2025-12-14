@@ -1,0 +1,18 @@
+# Node / Angular (ignore anywhere)
+**/node_modules/
+**/dist/
+**/.angular/
+**/.cache/
+**/coverage/
+
+# Environment files
+**/.env
+**/.env.*
+
+# OS / Editor
+.DS_Store
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
