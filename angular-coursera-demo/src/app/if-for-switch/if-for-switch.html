@@ -1,0 +1,43 @@
+<!-- if-for-switch.html -->
+<h1>Angular Control Flow Demo (\@\if / \@\for / \@\switch)</h1>
+
+<!-- ✅ @if: conditional rendering -->
+@if (showList) {
+  <p><!-- shows only when showList === true -->List is visible</p>
+
+  <!-- ✅ @for: loop rendering -->
+  <ul>
+    @for (item of items; track item) {
+      <li>{{ item }}</li>
+    }
+  </ul>
+} @else {
+  <p><!-- alternative UI when showList === false -->List is hidden</p>
+}
+
+<!-- ✅ @switch: render based on a value -->
+@switch (status) {
+  @case ('idle') {
+    <p><!-- when status === 'idle' -->Status: Idle</p>
+  }
+  @case ('loading') {
+    <p><!-- when status === 'loading' -->Status: Loading...</p>
+  }
+  @case ('done') {
+    <p><!-- when status === 'done' -->Status: Done ✅</p>
+  }
+  @default {
+    <p><!-- any other value -->Status: Unknown</p>
+  }
+}
+
+<hr />
+
+<!-- Event binding examples -->
+<button (click)="toggleList()">
+  Toggle list
+</button>
+
+<button (click)="nextStatus()" style="margin-left: 8px;">
+  Next status
+</button>
