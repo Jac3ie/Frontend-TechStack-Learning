@@ -4,24 +4,25 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-event-binding',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule], // ✅ ngModel needs this
   templateUrl: './event-binding.html',
   styleUrl: './event-binding.css',
 })
 export class EventBinding {
-  // This is the model value (used for replaying what user typed)
   typedText = '';
 
+  // Event binding: button click
   onClickBtn(): void {
     alert('Button clicked!');
   }
 
-  // Event binding example: reacts to keyup + reads event info
+  // Event binding: you handle event manually
   onKeyUp(event: KeyboardEvent): void {
-    const key = event.key;
-    console.log('Key pressed:', key);
+    const input = event.target as HTMLInputElement;
+    console.log('Key pressed:', event.key, '| current input:', input.value);
   }
 
+  // Used by the Clear button
   clear(): void {
     this.typedText = '';
   }
