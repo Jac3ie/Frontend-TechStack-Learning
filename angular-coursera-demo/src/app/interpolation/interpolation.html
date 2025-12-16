@@ -1,0 +1,20 @@
+<!-- 1) Basic: display component properties -->
+<h1>{{ title }}</h1>
+<p>{{ msg }}</p>
+
+<!-- 2) Expression: you can do quick calculations inside {{ }} -->
+<p>2 + 2 = {{ 2 + 2 }}</p>
+<p>Message length = {{ msg.length }}</p>
+
+<!-- 3) Method call: interpolation can call a method -->
+<h2>{{ greet() }}</h2>
+
+<!-- 4) Conditional expression: simple pluralization -->
+<p>
+  You have {{ unreadCount }} unread message{{ unreadCount === 1 ? '' : 's' }}.
+</p>
+
+<!-- 5) Read object + array values -->
+<p>User: {{ user.name }} ({{ user.role }})</p>
+<p>First course: {{ courses[0] }}</p>
+<p>Total courses: {{ courses.length }}</p>
