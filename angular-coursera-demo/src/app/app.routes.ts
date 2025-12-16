@@ -8,6 +8,7 @@ import { EventBinding } from './event-binding/event-binding';
 import { TwoWayBinding } from './two-way-binding/two-way-binding';
 import { IfForSwitch } from './if-for-switch/if-for-switch';
 import { NgStyleDemo } from './ng-style-demo/ng-style-demo';
+import { Pipes } from './pipes/pipes';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'lifecycle', pathMatch: 'full'}, // default go to lifecycle
@@ -20,5 +21,6 @@ export const routes: Routes = [
     { path: 'two-way-binding', component: TwoWayBinding},
     { path: 'if-for-switch', component: IfForSwitch},
     { path: 'ng-style-demo', component: NgStyleDemo},
+    { path: 'pipes', component: Pipes},
     { path: '**', component: Lifecycle},
 ];

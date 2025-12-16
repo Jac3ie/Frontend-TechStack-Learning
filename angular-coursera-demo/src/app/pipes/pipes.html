@@ -1,0 +1,17 @@
+<h1>Pipes Demo</h1>
+
+<!-- Pipes transform values in the template: value | pipeName : arg1 : arg2 -->
+<p>Original Text: {{ text }}</p>
+<p>Uppercase Text: {{ text | uppercase }}</p>
+
+<!-- Date pipe: common formats are 'short', 'medium', 'long', 'full' -->
+<p>Date (medium): {{ date | date:'medium' }}</p>
+
+<!-- Currency pipe:
+     ✅ Avoid the deprecated boolean display flag (true/false).
+     Use 'symbol' / 'symbol-narrow' / 'code' instead. -->
+<p>Amount (THB symbol): {{ amount | currency:'THB':'symbol-narrow':'1.2-2' }}</p>
+
+<!-- Extra examples (optional but useful) -->
+<p>Amount (THB code): {{ amount | currency:'THB':'code' }}</p>
+<p>Amount (number pipe): {{ amount | number:'1.2-2' }}</p>
