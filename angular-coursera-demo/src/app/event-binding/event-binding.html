@@ -1,0 +1,32 @@
+<h1>Event Binding vs Two-Way Binding</h1>
+
+<!-- Event Binding: only reacts to events -->
+<button (click)="onClickBtn()">Click me</button>
+
+<hr />
+
+<!-- Event Binding: you handle the event manually -->
+<label>Event binding (keyup):</label>
+<input
+  type="text"
+  (keyup)="onKeyUp($event)"
+  placeholder="Press keys to log event. Only can replay the current type one."
+  style="display:block; margin-top:8px; width:40%;"
+/>
+
+<hr />
+
+<!-- Two-way binding: keeps input value <-> typedText in sync automatically -->
+<label>Two-way binding (ngModel):</label>
+<input
+  type="text"
+  [(ngModel)]="typedText"
+  placeholder="Type here and it will replay below..."
+  style="display:block; margin-top:8px; width:40%;"
+/>
+
+<p style="margin-top:10px;">
+  Replay: <strong>{{ typedText }}</strong>
+</p>
+
+<button (click)="clear()">Clear</button>
