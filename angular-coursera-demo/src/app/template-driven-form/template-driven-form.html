@@ -1,0 +1,79 @@
+<h1>Template-Driven Form Demo</h1>
+
+<!--
+  #f="ngForm"
+  - Creates a template reference variable named "f"
+  - It points to the NgForm instance (the whole form controller)
+-->
+<form #f="ngForm" (ngSubmit)="submitForm(f)">
+
+  <!-- Name -->
+  <div class="field">
+    <label for="name">Name</label>
+
+    <!--
+      name="name" + ngModel
+      - Required for template-driven forms:
+        ngModel registers this input into the form (NgForm)
+        name is the key inside f.value, e.g. f.value.name
+    -->
+    <input
+        id="name"
+        type="text"
+        name="name"
+        ngModel
+        required
+        minlength="2"
+        #nameModel="ngModel"
+/>
+
+<!--
+  #nameModel="ngModel"
+  - Another template reference variable.
+  - It points to THIS input’s NgModel controller.
+  - Lets you check validity/state like touched/invalid/errors.
+-->
+
+    <!-- Show validation only after user interacted with the field -->
+    @if (nameModel.touched && nameModel.invalid) {
+      <small class="error">
+        <!-- errors is a JS object (map) of validation failures -->
+        @if (nameModel.errors?.['required']) {
+          <span>Name is required.</span>
+        }
+        @if (nameModel.errors?.['minlength']) {
+          <span>Name must be at least 2 characters.</span>
+        }
+      </small>
+    }
+  </div>
+
+  <!-- Email -->
+  <div class="field">
+    <label for="email">Email</label>
+
+    <input
+      id="email"
+      type="email"
+      name="email"
+      ngModel
+      required
+      email
+      #emailModel="ngModel"
+    />
+
+    @if (emailModel.touched && emailModel.invalid) {
+      <small class="error">
+        @if (emailModel.errors?.['required']) {
+          <span>Email is required.</span>
+        }
+        @if (emailModel.errors?.['email']) {
+          <span>Please enter a valid email.</span>
+        }
+      </small>
+    }
+  </div>
+
+  <!-- Disable submit until the whole form becomes valid -->
+  <button type="submit" [disabled]="f.invalid">Submit</button>
+</form>
