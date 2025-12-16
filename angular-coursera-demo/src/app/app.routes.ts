@@ -5,6 +5,7 @@ import { DataBinding } from './data-binding/data-binding';
 import { Interpolation } from './interpolation/interpolation';
 import { PropertyBinding } from './property-binding/property-binding';
 import { EventBinding } from './event-binding/event-binding';
+import { TwoWayBinding } from './two-way-binding/two-way-binding';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'lifecycle', pathMatch: 'full'}, // default go to lifecycle
@@ -14,5 +15,6 @@ export const routes: Routes = [
     { path: 'interpolation', component: Interpolation},
     { path: 'property-binding', component: PropertyBinding},
     { path: 'event-binding', component: EventBinding},
+    { path: 'two-way-binding', component: TwoWayBinding},
     { path: '**', component: Lifecycle},
 ];

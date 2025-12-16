@@ -1,0 +1,19 @@
+<h1>Two-Way Binding (ngModel)</h1>
+
+<label for="input">Name:</label>
+<input
+  id="input"
+  type="text"
+  [(ngModel)]="name"
+  placeholder="Enter your name..."
+  style="margin-left: 8px; margin-top: 10px;"
+/>
+
+<p style="margin-top: 10px;">
+  <!-- call the get function -->
+  Welcome! <strong>{{ displayName }}</strong>
+</p>
+
+<button (click)="clear()" [disabled]="!name.trim()">
+  Clear
+</button>
