@@ -1,0 +1,12 @@
+<h1>Property Binding</h1>
+
+<!-- ✅ Property binding (DOM property) -->
+<button [disabled]="isDisabled">Click me</button>
+
+<!-- Simple interaction to show it changes -->
+<button (click)="toggleDisabled()">Toggle disabled</button>
+
+<hr />
+
+<!-- ✅ Property binding to input's DOM value -->
+<input [value]="getInitialVal()" />
