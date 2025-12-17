@@ -10,6 +10,7 @@ import { IfForSwitch } from './if-for-switch/if-for-switch';
 import { NgStyleDemo } from './ng-style-demo/ng-style-demo';
 import { Pipes } from './pipes/pipes';
 import { TemplateDrivenForm } from './template-driven-form/template-driven-form';
+import { ReactiveForm } from './reactive-form/reactive-form';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'lifecycle', pathMatch: 'full'}, // default go to lifecycle
@@ -24,5 +25,6 @@ export const routes: Routes = [
     { path: 'ng-style-demo', component: NgStyleDemo},
     { path: 'pipes', component: Pipes},
     { path: 'template-driven-form', component: TemplateDrivenForm},
+    { path: 'reactive-form', component: ReactiveForm},
     { path: '**', component: Lifecycle},
 ];
