@@ -8,7 +8,7 @@
 
 .page {
     padding: 20px;
-    max-width: 60%;
+    max-width: 90%;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(4, 4, 88);
@@ -76,4 +76,157 @@ input, select {
 
 input:focus, select:focus {
   border-color: rgba(74, 108, 222, 0.6);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+}
+
+.card h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
+.preview {
+  background: #fafcff;
+}
+
+.k {
+  font-weight: 800;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.10);
+  margin: 14px 0;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.chip {
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease, box-shadow 120ms ease;
+}
+
+.chip:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.10);
+}
+
+.row.add {
+  align-items: flex-end;
+}
+
+.grow {
+  flex: 1;
+}
+
+.pair.small label {
+  width: 60px;
+}
+
+/* Add button */
+.primary {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 12px;
+  background: rgb(47, 27, 148);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease;
+  height: 42px; /* matches input height roughly */
+}
+
+.primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Plan list */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: #fff;
+}
+
+.item.done .activity {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.meta {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.actions button {
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #ffffff;
+  cursor: pointer;
+  transition: filter 120ms ease, transform 120ms ease;
+}
+
+.actions button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.actions .danger {
+  border-color: rgba(220, 38, 38, 0.35);
+}
+
+/* Empty state */
+.empty {
+  margin-top: 12px;
+  opacity: 0.75;
 }
