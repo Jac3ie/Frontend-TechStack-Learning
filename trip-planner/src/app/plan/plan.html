@@ -1,1 +1,59 @@
-<p>plan works!</p>
+<header class="header">
+  <h1>Trip Plan</h1>
+  <p>Fill in trip details and form your day-by-day plan</p>
+</header>
+
+<section class="basic">
+  <div class="card">
+    <h2>Trip Basics</h2>
+
+    <div class="field">
+      <label>Destination</label>
+      <input
+        type="text"
+        [(ngModel)]="destination"
+        placeholder="e.g. China"
+      />
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Start Date: </label>
+        <input type="date" [(ngModel)]="startDate" />
+      </div>
+
+      <div class="field">
+        <label>End Date: </label>
+        <input type="date" [(ngModel)]="endDate" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Budget: </label>
+        <input type="number" [(ngModel)]="budget" min="0" />
+      </div>
+
+      <div class="field">
+        <label>Travelers Count: </label>
+        <select [(ngModel)]="travelers">
+          <option [ngValue]="1">1</option>
+          <option [ngValue]="2">2</option>
+          <option [ngValue]="3">3</option>
+          <option [ngValue]="4">4</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Style: </label>
+      <select [(ngModel)]="style">
+        <!-- need '' here to make the ngVlaue become string -->
+        <option [ngValue]="'Relax'">Relax</option>
+        <option [ngValue]="'Adventure'">Adventure</option>
+        <option [ngValue]="'Foodie'">Foodie</option>
+        <option [ngValue]="'Culture'">Culture</option>
+      </select>
+    </div>
+  </div>
+</section>
