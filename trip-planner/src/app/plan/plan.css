@@ -1,0 +1,79 @@
+:host {
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.page {
+    padding: 20px;
+    max-width: 60%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(4, 4, 88);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.header p {
+  margin: 6px 0 18px;
+  opacity: 0.75;
+}
+
+/* Card */
+.basic .grid {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 40px;
+  padding: 18px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+}
+
+.basic h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.pair {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* When pair is inside a .row, share space evenly */
+.row .pair {
+  flex: 1;
+  margin-bottom: 0; /* row already has margin */
+}
+
+label {
+  width: 140px;          /* aligns labels nicely */
+  font-size: 14px;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+input, select {
+  flex: 1;
+  min-width: 0;          /* prevents overflow in flex */
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.16);
+  outline: none;
+  background: #fff;
+}
+
+input:focus, select:focus {
+  border-color: rgba(74, 108, 222, 0.6);
+}
