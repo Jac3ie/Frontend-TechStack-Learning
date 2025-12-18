@@ -1,39 +1,41 @@
 <div class="page">
     <header class="header">
         <h1>Trip Plan</h1>
-        <p>Fill in trip details and form your day-by-day plan</p>
+        <p class="sub">Fill your trip basics and build a day-by-day plan.</p>
     </header>
 
-    <section class="basic">
-        <div class="grid">
+    <!-- TOP: Basics + Live Preview -->
+    <section class="grid">
+        <div class="card">
             <h2>Trip Basics</h2>
 
             <div class="pair">
                 <label>Destination</label>
-                <input type="text" [(ngModel)]="destination" placeholder="e.g. China" />
+                <input type="text" [(ngModel)]="destination" (ngModelChange)="syncToService()"
+                    placeholder="e.g. China" />
             </div>
 
             <div class="row">
                 <div class="pair">
                     <label>Start Date</label>
-                    <input type="date" [(ngModel)]="startDate" />
+                    <input type="date" [(ngModel)]="startDate" (ngModelChange)="syncToService()" />
                 </div>
 
                 <div class="pair">
                     <label>End Date</label>
-                    <input type="date" [(ngModel)]="endDate" />
+                    <input type="date" [(ngModel)]="endDate" (ngModelChange)="syncToService()" />
                 </div>
             </div>
 
             <div class="row">
                 <div class="pair">
                     <label>Budget</label>
-                    <input type="number" [(ngModel)]="budget" min="0" />
+                    <input type="number" [(ngModel)]="budget" (ngModelChange)="syncToService()" min="0" />
                 </div>
 
                 <div class="pair">
                     <label>Travelers</label>
-                    <select [(ngModel)]="travelers">
+                    <select [(ngModel)]="travelers" (ngModelChange)="syncToService()">
                         <option [ngValue]="1">1</option>
                         <option [ngValue]="2">2</option>
                         <option [ngValue]="3">3</option>
@@ -44,7 +46,7 @@
 
             <div class="pair">
                 <label>Style</label>
-                <select [(ngModel)]="style">
+                <select [(ngModel)]="style" (ngModelChange)="syncToService()">
                     <option [ngValue]="'Relax'">Relax</option>
                     <option [ngValue]="'Adventure'">Adventure</option>
                     <option [ngValue]="'Foodie'">Foodie</option>
@@ -52,5 +54,77 @@
                 </select>
             </div>
         </div>
+
+        <div class="card preview">
+            <h2>Live Preview</h2>
+
+            <p><span class="k">Destination:</span> {{ destination || '—' }}</p>
+            <p><span class="k">Dates:</span> {{ startDate || '—' }} → {{ endDate || '—' }}</p>
+            <p><span class="k">Budget:</span> {{ budget }}</p>
+            <p><span class="k">Travelers:</span> {{ travelers }}</p>
+            <p><span class="k">Style:</span> {{ style }}</p>
+
+            <hr />
+
+            <h3>Quick Suggestions</h3>
+            <div class="chips">
+                @for (s of suggestions; track s) {
+                <button class="chip" type="button" (click)="addSuggestion(s)">
+                    + {{ s }}
+                </button>
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTTOM: Plan Builder -->
+    <section class="card">
+        <h2>Day Plan Builder</h2>
+
+        <div class="row add">
+            <div class="pair small">
+                <label>Day</label>
+                <input type="number" [(ngModel)]="newDay" min="1" />
+            </div>
+
+            <div class="pair small">
+                <label>Time</label>
+                <input type="time" [(ngModel)]="newTime" />
+            </div>
+
+            <div class="pair grow">
+                <label>Activity</label>
+                <input type="text" [(ngModel)]="newActivity" placeholder="e.g., Visit temple, café, museum..."
+                    (keydown.enter)="addItem()" />
+            </div>
+
+            <button class="primary" type="button" (click)="addItem()" [disabled]="!newActivity.trim()">
+                Add
+            </button>
+        </div>
+
+        @if (planItems.length === 0) {
+        <p class="empty">No items yet. Add your first activity above 👆</p>
+        } @else {
+        <ul class="list">
+            @for (item of planItems; track $index) {
+            <li class="item" [class.done]="item.done">
+                <div class="left">
+                    <div class="meta">Day {{ item.day }} • {{ item.time }}</div>
+                    <div class="activity">{{ item.activity }}</div>
+                </div>
+
+                <div class="actions">
+                    <button type="button" (click)="toggleDone($index)">
+                        {{ item.done ? 'Undo' : 'Done' }}
+                    </button>
+                    <button type="button" class="danger" (click)="removeItem($index)">
+                        Remove
+                    </button>
+                </div>
+            </li>
+            }
+        </ul>
+        }
     </section>
 </div>
