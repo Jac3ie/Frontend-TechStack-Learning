@@ -1,1 +1,29 @@
-<p>summary works!</p>
+<div class="page">
+    <h1>Summary</h1>
+    <p class="sub">Your trip at a glance.</p>
+
+    <div class="card">
+        <h2>Basics</h2>
+        <p><b>Destination:</b> {{ state.destination || '—' }}</p>
+        <p><b>Dates:</b> {{ state.startDate || '—' }} → {{ state.endDate || '—' }}</p>
+        <p><b>Budget:</b> {{ state.budget }}</p>
+        <p><b>Travelers:</b> {{ state.travelers }}</p>
+        <p><b>Style:</b> {{ state.style }}</p>
+    </div>
+
+    <div class="card">
+        <h2>Plan</h2>
+        <p><b>Total items:</b> {{ planTotal }}</p>
+        <p><b>Done:</b> {{ planDone }}</p>
+
+        @if (state.planItems.length > 0) {
+        <hr />
+        <p class="muted">First 3 activities:</p>
+        <ol>
+            @for (item of state.planItems.slice(0, 3); track $index) {
+            <li>Day {{ item.day }} • {{ item.time }} — {{ item.activity }}</li>
+            }
+        </ol>
+        }
+    </div>
+</div>
