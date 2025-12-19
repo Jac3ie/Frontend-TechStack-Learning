@@ -6,7 +6,7 @@ It contains short HTML/JavaScript exercises and two Angular apps: a topic-by-top
 ## Tech stack
 - HTML / CSS / JavaScript
 - TypeScript
-- Angular (standalone components, routing) — `@angular/*` v21.x
+- Angular (standalone components, routing) — `@angular/*` v21
 
 ## Repository structure
 - `HTML/` — basic HTML practice pages  
@@ -51,6 +51,10 @@ This project intentionally stays simple while still demonstrating core Angular c
 cd angular-coursera-demo
 npm install
 npm start
+```
 
+### Trip Planner
+```bash
 cd trip-planner
+npm install
 npm start
