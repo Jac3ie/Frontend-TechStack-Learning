@@ -1,1 +1,23 @@
-<p>check-list works!</p>
+<div class="page">
+    <h1>Check-List</h1>
+    <p class="sub">Quick packing checklist.</p>
+
+    <div class="row">
+        <input [(ngModel)]="newItem" placeholder="Add item..." (keydown.enter)="add()" />
+        <button type="button" (click)="add()">Add</button>
+        <button type="button" class="ghost" (click)="clearDone()">Clear Done</button>
+    </div>
+
+    <ul class="list">
+        @for (item of items; track $index) {
+        <li class="item" [class.done]="item.done">
+            <label class="left">
+                <input type="checkbox" [checked]="item.done" (change)="toggle($index)" />
+                <span>{{ item.text }}</span>
+            </label>
+
+            <button type="button" class="danger" (click)="remove($index)">Remove</button>
+        </li>
+        }
+    </ul>
+</div>
